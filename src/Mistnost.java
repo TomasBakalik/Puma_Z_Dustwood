@@ -6,9 +6,9 @@ public abstract class Mistnost {
     protected String popis;
     protected HashMap<String, Mistnost> vychody;
 
-    public Mistnost(String popis, String nazev) {
-        this.popis = popis;
+    public Mistnost(String nazev, String popis) {
         this.nazev = nazev;
+        this.popis = popis;
         this.vychody = new HashMap<>();
     }
 

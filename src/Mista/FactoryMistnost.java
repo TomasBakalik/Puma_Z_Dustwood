@@ -1,3 +1,5 @@
+package Mista;
+
 public class FactoryMistnost {
 
     public static Mistnost vytvorMistnost(String nazev){

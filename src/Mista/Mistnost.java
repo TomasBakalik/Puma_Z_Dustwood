@@ -1,3 +1,5 @@
+package Mista;
+
 import java.util.HashMap;
 
 public abstract class Mistnost {

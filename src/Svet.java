@@ -1,3 +1,6 @@
+import Mista.FactoryMistnost;
+import Mista.Mistnost;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -40,7 +43,7 @@ public class Svet {
                         if(soused != null){
                             mistnost.nastavitVychod(vstup[i].toLowerCase(), soused);
                         }else{
-                            System.out.println("Chyba: Mistnost " + vstup[i] + " nebyla nalezena");
+                            System.out.println("Chyba: Mista.Mistnost " + vstup[i] + " nebyla nalezena");
                         }
                     }
                 }

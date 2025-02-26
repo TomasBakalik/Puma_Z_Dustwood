@@ -1,3 +1,5 @@
+import Mista.Mistnost;
+
 public class Jdi implements Prikaz{
 
     private String smer;

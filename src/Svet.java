@@ -9,6 +9,16 @@ public class Svet {
     private HashMap<String, Mistnost> mistnosti = new HashMap<>();
     private Mistnost aktualniMistnost;
 
+    public Svet(String soubor){
+        nacistSvetZeSouboru(soubor);
+
+        if(mistnosti.containsKey("namesti")){
+            aktualniMistnost = mistnosti.get("namesti");
+        }else{
+            System.out.println("Chyba, mistnost namesti pro start hry nebyla nalezena v souboru");
+        }
+    }
+
     public void nacistSvetZeSouboru(String soubor){
         try(BufferedReader br = new BufferedReader(new FileReader(soubor))){
             ArrayList<String[]> data = new ArrayList<>();

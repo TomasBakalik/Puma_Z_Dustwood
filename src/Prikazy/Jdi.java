@@ -1,6 +1,10 @@
-import Mista.Mistnost;
+package Prikazy;
 
-public class Jdi implements Prikaz{
+import Mista.Mistnost;
+import Hlavni.Svet;
+
+
+public class Jdi implements Prikaz {
 
     private String smer;
 

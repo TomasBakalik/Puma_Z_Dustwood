@@ -1,3 +1,9 @@
+package Hlavni;
+
+import Prikazy.Jdi;
+import Prikazy.Prikaz;
+import Prikazy.Stop;
+
 import java.util.HashMap;
 import java.util.Scanner;
 

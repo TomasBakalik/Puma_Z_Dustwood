@@ -1,4 +1,4 @@
-package Inventar;
+package Predmety;
 
 public abstract class Predmet {
 

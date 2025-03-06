@@ -20,4 +20,6 @@ public class Hrac extends Postava{
     public void interaguj(Svet svet){
 
     }
+
+
 }

@@ -46,19 +46,33 @@ public abstract class Mistnost {
         return predmety;
     }
 
-    public void pridatPostavu(){
-
+    public void pridatPostavu(Postava postava){
+        if(!postavy.contains(postava)){
+            postavy.add(postava);
+        }
     }
 
-    public void odebratPostavu(){
-
+    public void odebratPostavu(String jmeno){
+        for(Postava postava : postavy){
+            if(postava.getJmeno().equalsIgnoreCase(jmeno)){
+                postavy.remove(postava);
+                System.out.println("Postava " + jmeno + " byla odstranena.");
+            }
+        }
     }
 
-    public void pridatPredmet(){
-
+    public void pridatPredmet(Predmet predmet){
+        if(!predmety.contains(predmet)){
+            predmety.add(predmet);
+        }
     }
 
-    public void odebratPredmet(){
-
+    public void odebratPredmet(String nazev){
+        for(Predmet pretmet : predmety){
+            if(pretmet.getJmeno().equalsIgnoreCase(nazev)){
+                predmety.remove(pretmet);
+                System.out.println("Postava " + nazev + " byla odstranena.");
+            }
+        }
     }
 }

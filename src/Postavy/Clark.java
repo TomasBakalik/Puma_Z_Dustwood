@@ -9,6 +9,6 @@ public class Clark extends Postava{
 
     @Override
     public void interaguj(Svet svet) {
-
+        System.out.println("Clark: Kazdou noc se vraci na namesti. Mel by jsi se se svou zbrani dostat na strechu hospody a odtamud ukoncit radeni te bestie.");
     }
 }

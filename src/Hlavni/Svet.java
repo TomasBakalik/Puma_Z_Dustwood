@@ -1,4 +1,6 @@
+
 package Hlavni;
+
 
 import Mista.FactoryMistnost;
 import Mista.Mistnost;
@@ -126,5 +128,4 @@ public class Svet {
             System.out.println();
         }
     }
-
 }

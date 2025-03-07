@@ -1,63 +1,81 @@
 package Hlavni;
 
-import Prikazy.Jdi;
-import Prikazy.Prikaz;
-import Prikazy.Stop;
-
+import Prikazy.*;
 import java.util.HashMap;
 import java.util.Scanner;
 
 public class Konzole {
 
-    private boolean konec2 = false;
+    private boolean konecHry = false;
     private HashMap<String, Prikaz> mapa = new HashMap<>();
     private Svet svet;
+    private Scanner scanner = new Scanner(System.in);
 
-    public Konzole(Svet svet) {
+    public Konzole(Svet svet){
         this.svet = svet;
     }
 
-    public void inicialzace(){
+    public void inicializace(){
         mapa.put("stop", new Stop());
+        mapa.put("napoveda", new Napoveda());
+        mapa.put("pomoc", new Pomoc());
     }
-
-    Scanner scanner = new Scanner(System.in);
 
     public void provedPrikaz(){
         System.out.println(">> ");
-        String prikaz2 = scanner.nextLine();
-        prikaz2 = prikaz2.trim();
-        prikaz2 = prikaz2.toLowerCase();
+        String prikaz2 = scanner.nextLine().toLowerCase().trim();
 
         if(prikaz2.startsWith("jdi")){
             String smer = prikaz2.substring(4);
-            Prikaz prikaz = new Jdi(smer);
-            System.out.println(">> " + prikaz.proved(svet));
-            if(prikaz.konec()){
-                konec2 = true;
+            Prikaz jdi = new Jdi(smer);
+            System.out.println(">> " + jdi.proved(svet));
+            if(jdi.konec()){
+                konecHry = true;
             }
-            } else if (mapa.containsKey(prikaz2)) {
+        } else if (prikaz2.startsWith("mluv")) {
+            String postava = prikaz2.substring(5);
+            Prikaz mluv = new Mluv(postava);
+            System.out.println(">> " + mluv.proved(svet));
+        } else if (prikaz2.startsWith("vezmi")) {
+            String predmet = prikaz2.substring(6);
+            Prikaz vezmi = new Vezmi(predmet);
+            System.out.println(">> " + vezmi.proved(svet));
+        } else if (prikaz2.startsWith("poloz")) {
+            String predmet = prikaz2.substring(6);
+            Prikaz poloz = new Poloz(predmet);
+            System.out.println(">> " + poloz.proved(svet));
+        } else if (prikaz2.equals("strel")) {
+            Prikaz strel = new Strel();
+            System.out.println(">> " + strel.proved(svet));
+        } else if (prikaz2.equals("poves")) {
+            Prikaz poves = new Poves();
+            System.out.println(">> " + poves.proved(svet));
+            if(poves.konec()){
+                konecHry = true;
+            }
+        } else if (mapa.containsKey(prikaz2)) {
             Prikaz prikaz = mapa.get(prikaz2);
             System.out.println(">> " + prikaz.proved(svet));
             if(prikaz.konec()){
-                konec2 = true;
+                konecHry = true;
+            }else{
+                System.out.println(">> Neznamy prikaz");
             }
-        }else{
-            System.out.println(">> Neznamy prikaz");
         }
     }
 
     public void start(){
-        inicialzace();
-        System.out.println("Vitej ve hre! Napis prikaz jdi zoo nebo stop pro konec hry");
-        //svet.vypisObsahMistnosti();
+        inicializace();
+        System.out.println("Vitej ve hre! Napis prikaz 'napoveda' pro seznam prikazu nebo 'stop' pro konec hry.");
         try{
             do{
                 provedPrikaz();
-            }while(!konec2);
-        }catch(Exception e){
+            }while(!konecHry);
+        }catch (Exception e){
             System.out.println(e.getMessage());
         }
     }
-
 }
+
+
+

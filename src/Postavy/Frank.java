@@ -5,7 +5,7 @@ import Predmety.Naboje;
 
 public class Frank extends Postava{
     public Frank() {
-        super("Frank: ", "Vitej v obchode! Chces naboje?");
+        super("Frank", ": Vitej v obchode! Chces naboje? Prines mi bavlnu");
     }
 
     @Override

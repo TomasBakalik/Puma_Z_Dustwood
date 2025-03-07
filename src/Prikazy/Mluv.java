@@ -8,16 +8,21 @@ public class Mluv implements Prikaz{
 
     private String jmenoPostavy;
 
+    public Mluv(String jmenoPostavy) {
+        this.jmenoPostavy = jmenoPostavy;
+    }
 
     @Override
     public String proved(Svet svet) {
         for(Postava postava: svet.getAktualniMistnost().getPostavy()){
-            if(postava.getJmeno().equals(jmenoPostavy)){
+            if(postava.getJmeno().trim().equalsIgnoreCase(jmenoPostavy.trim())){
                 postava.interaguj(svet);
                 return "";
             }
         }
         return "Takova postava tu neni";
+
+
     }
 
 

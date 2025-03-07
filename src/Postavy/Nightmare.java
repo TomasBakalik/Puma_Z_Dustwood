@@ -6,7 +6,7 @@ import Predmety.Predmet;
 public class Nightmare extends Postava{
 
     public Nightmare() {
-        super("Nightmare: ", "Vrci a chysta se zautocit.");
+        super("Nightmare", ": Vrci a chysta se zautocit.");
     }
 
     @Override

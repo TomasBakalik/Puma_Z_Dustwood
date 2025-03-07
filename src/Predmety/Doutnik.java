@@ -4,7 +4,7 @@ import Postavy.Hrac;
 
 public class Doutnik extends Predmet{
     public Doutnik() {
-        super("Doutnik: ", "Stary dobry doutnik. Proste klasika, ktera na divokem zapade nesmi chybet");
+        super("Doutnik", ": Stary dobry doutnik. Proste klasika, ktera na divokem zapade nesmi chybet");
     }
 
     @Override

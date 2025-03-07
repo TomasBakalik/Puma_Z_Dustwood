@@ -10,8 +10,5 @@ public class Main {
         Konzole konzole = new Konzole(svet);
         konzole.start();
 
-        Mistnost obchod = svet.getAktualniMistnost();
-        System.out.println(obchod.getPredmety());
-
     }
 }

@@ -4,7 +4,7 @@ import Postavy.Hrac;
 
 public class KozichPumy extends Predmet{
     public KozichPumy() {
-        super("Kozich pumy: ", "Trofej z porazene pumy");
+        super("Kozich pumy", ": Trofej z porazene pumy");
     }
 
     @Override

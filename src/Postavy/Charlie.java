@@ -4,7 +4,7 @@ import Hlavni.Svet;
 
 public class Charlie extends Postava{
     public Charlie() {
-        super("Charlie: ", "Nejvetsi puma ze zoo utekla, mej se na pozoru.");
+        super("Charlie", ": Nejvetsi puma ze zoo utekla, mej se na pozoru.");
     }
 
     @Override

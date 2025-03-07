@@ -5,6 +5,7 @@ import Predmety.Predmet;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 
 public abstract class Mistnost {
 
@@ -79,10 +80,13 @@ public abstract class Mistnost {
 
 
     public void odebratPredmet(String nazev){
-        for(Predmet pretmet : predmety){
-            if(pretmet.getJmeno().equalsIgnoreCase(nazev)){
-                predmety.remove(pretmet);
-                System.out.println("Postava " + nazev + " byla odstranena.");
+        Iterator<Predmet> iterator = predmety.iterator();
+
+        while(iterator.hasNext()){
+            Predmet predmet = iterator.next();
+            if(predmet.getJmeno().equalsIgnoreCase(nazev)){
+                iterator.remove();
+                return;
             }
         }
     }

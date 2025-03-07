@@ -4,7 +4,7 @@ import Hlavni.Svet;
 
 public class John extends Postava{
     public John() {
-        super("John: ", "Vitej v hospode. Puma zabiji lidi i dobytek, mel by jsi si obstarat zbran.");
+        super("John", ": Vitej v hospode. Puma zabiji lidi i dobytek, mel by jsi si obstarat zbran.");
     }
 
     @Override

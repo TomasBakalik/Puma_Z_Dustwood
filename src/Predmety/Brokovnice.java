@@ -6,7 +6,7 @@ public class Brokovnice extends Predmet{
 
 
     public Brokovnice() {
-        super("Brokovnice: ", "Pomuze ti porazit pumu");
+        super("Brokovnice", ": Pomuze ti porazit pumu");
     }
 
     @Override

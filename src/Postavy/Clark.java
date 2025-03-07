@@ -4,7 +4,7 @@ import Hlavni.Svet;
 
 public class Clark extends Postava{
     public Clark() {
-        super("Clark: ", "Vcera v noci jsem pumu videl");
+        super("Clark", ": Vcera v noci jsem pumu videl");
     }
 
     @Override

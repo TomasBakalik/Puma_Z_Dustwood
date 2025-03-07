@@ -68,6 +68,15 @@ public abstract class Mistnost {
         }
     }
 
+    public Predmet ziskatPredmet(String nazev){
+        for(Predmet predmet : predmety){
+            if(predmet.getJmeno().equalsIgnoreCase(nazev)){
+                return predmet;
+            }
+        }
+        return null;
+    }
+
 
     public void odebratPredmet(String nazev){
         for(Predmet pretmet : predmety){

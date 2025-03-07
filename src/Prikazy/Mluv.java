@@ -11,7 +11,13 @@ public class Mluv implements Prikaz{
 
     @Override
     public String proved(Svet svet) {
-        return null;
+        for(Postava postava: svet.getAktualniMistnost().getPostavy()){
+            if(postava.getJmeno().equals(jmenoPostavy)){
+                postava.interaguj(svet);
+                return "";
+            }
+        }
+        return "Takova postava tu neni";
     }
 
 

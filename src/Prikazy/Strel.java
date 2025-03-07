@@ -1,11 +1,23 @@
 package Prikazy;
 
 import Hlavni.Svet;
+import Postavy.Hrac;
 
 public class Strel implements Prikaz{
     @Override
     public String proved(Svet svet) {
-        return "";
+        Hrac hrac = svet.getHrac();
+        if(svet.getAktualniMistnost().getNazev().equalsIgnoreCase("strecha hospody") && hrac.getInventar().obsahujePredmet("Brokovnice") && hrac.getInventar().obsahujePredmet("Naboje")){
+            svet.getAktualniMistnost().odebratPostavu("Nightmare");
+            hrac.getInventar().odebratPredmet("Naboje");
+            hrac.getInventar().odebratPredmet("Brokovnice");
+            hrac.getInventar().pridatPredmet(new Predmety.KozichPumy());
+
+            return "Zastrelil jsi pumu! Nyni muzes povesit jeji kozich na dvere hospody.";
+
+        }else{
+            return "Nemas potrebne vybaveni nebo nejsi na spravnem miste.";
+        }
     }
 
     @Override

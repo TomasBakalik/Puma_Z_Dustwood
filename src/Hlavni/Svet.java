@@ -77,6 +77,7 @@ public class Svet {
         return hrac;
     }
 
+
     public void pridatPostavuDoMistnosti(String nazevMistnosti, Postava postava){
         if(mistnosti.containsKey(nazevMistnosti)){
             mistnosti.get(nazevMistnosti).pridatPostavu(postava);
@@ -85,6 +86,7 @@ public class Svet {
         }
     }
 
+
     public void pridatPredmetDoMistnosti(String nazevMistnosti, Predmet predmet){
         if(mistnosti.containsKey(nazevMistnosti)){
             mistnosti.get(nazevMistnosti).pridatPredmet(predmet);
@@ -92,6 +94,7 @@ public class Svet {
             System.out.println("Chyba: Mistnost " + nazevMistnosti + " neexistuje, premet " + predmet.getJmeno() + " nebyl pridan");
         }
     }
+
 
     public void inicializovatPostavy(){
         pridatPostavuDoMistnosti("zoo", new Charlie());
@@ -106,6 +109,22 @@ public class Svet {
         pridatPredmetDoMistnosti("starostuv dum", new Brokovnice());
         pridatPredmetDoMistnosti("obchod", new Naboje());
         pridatPredmetDoMistnosti("ohrada", new Bavlna());
+    }
+
+    public void vypisObsahMistnosti() {
+        for (String nazev : mistnosti.keySet()) {
+            Mistnost mistnost = mistnosti.get(nazev);
+            System.out.println("Mistnost: " + mistnost.getNazev());
+            System.out.println("  Predmety: ");
+            for (Predmet predmet : mistnost.getPredmety()) {
+                System.out.println("   - " + predmet.getJmeno());
+            }
+            System.out.println("  Postavy: ");
+            for (Postava postava : mistnost.getPostavy()) {
+                System.out.println("   - " + postava.getJmeno());
+            }
+            System.out.println();
+        }
     }
 
 }

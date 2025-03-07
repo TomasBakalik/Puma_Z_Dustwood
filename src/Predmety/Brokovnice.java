@@ -11,6 +11,10 @@ public class Brokovnice extends Predmet{
 
     @Override
     public String pouzij(Hrac hrac) {
-        return "";
+        if(hrac.getInventar().obsahujePredmet("Naboje")){
+            return "Brokovnice je nabita, jsi pripraven strilet";
+        }else{
+            return "Nemas naboje, brokovnice je k nicemu";
+        }
     }
 }

@@ -12,27 +12,23 @@ public class Inventar {
         this.predmety = new ArrayList<>();
     }
 
-    public boolean pridatPredmet(Predmet predmet) {
+    public void pridatPredmet(Predmet predmet) {
         if(predmety.size() < kapacita && !predmety.contains(predmet)) {
             predmety.add(predmet);
             System.out.println(predmet.getJmeno() + " byl pridan do inventare");
-            return true;
         }else{
             System.out.println("Inventar je plny! Nemuzes vzit " + predmet.getJmeno());
-            return false;
         }
     }
 
-    public boolean odebratPredmet(String nazev) {
+    public void odebratPredmet(String nazev) {
         for(Predmet predmet : predmety) {
             if(predmet.getJmeno().equalsIgnoreCase(nazev)) {
                 predmety.remove(predmet);
                 System.out.println(predmet.getJmeno() + " byl odstranen z inventare");
-                return true;
             }
         }
         System.out.println("Nemas tento predmet v inventari. ");
-        return false;
     }
 
     public boolean obsahujePredmet(String nazev){

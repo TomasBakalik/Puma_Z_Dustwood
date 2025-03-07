@@ -61,11 +61,13 @@ public abstract class Mistnost {
         }
     }
 
+
     public void pridatPredmet(Predmet predmet){
         if(!predmety.contains(predmet)){
             predmety.add(predmet);
         }
     }
+
 
     public void odebratPredmet(String nazev){
         for(Predmet pretmet : predmety){

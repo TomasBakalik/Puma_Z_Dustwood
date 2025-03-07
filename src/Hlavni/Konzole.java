@@ -50,6 +50,7 @@ public class Konzole {
     public void start(){
         inicialzace();
         System.out.println("Vitej ve hre! Napis prikaz jdi zoo nebo stop pro konec hry");
+        //svet.vypisObsahMistnosti();
         try{
             do{
                 provedPrikaz();

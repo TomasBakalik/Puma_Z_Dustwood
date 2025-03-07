@@ -9,6 +9,6 @@ public class Klobouk extends Predmet{
 
     @Override
     public String pouzij(Hrac hrac) {
-        return "";
+        return "Nasadil jsi si klobou. Ted jsi jako opravdovy kovboj.";
     }
 }

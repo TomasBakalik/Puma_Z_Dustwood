@@ -9,6 +9,6 @@ public class Doutnik extends Predmet{
 
     @Override
     public String pouzij(Hrac hrac) {
-        return "";
+        return "Zapalil jsi si doutnik. To je ale skvela atmosfera.";
     }
 }

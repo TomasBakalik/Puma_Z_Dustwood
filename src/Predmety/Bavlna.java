@@ -9,6 +9,6 @@ public class Bavlna extends Predmet {
 
     @Override
     public String pouzij(Hrac hrac) {
-        return "";
+        return "Bavlna sama o sobe k nicemu neni, dej ji v obchode Frankovi a on ti za ni da naboje";
     }
 }

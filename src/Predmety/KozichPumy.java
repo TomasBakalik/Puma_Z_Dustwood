@@ -9,6 +9,6 @@ public class KozichPumy extends Predmet{
 
     @Override
     public String pouzij(Hrac hrac) {
-        return "";
+        return "Povesil jsi kozich pumy na dvere hospody. Vitezstvi!";
     }
 }

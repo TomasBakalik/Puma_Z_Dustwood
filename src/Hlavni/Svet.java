@@ -5,10 +5,7 @@ package Hlavni;
 import Mista.FactoryMistnost;
 import Mista.Mistnost;
 import Postavy.*;
-import Predmety.Bavlna;
-import Predmety.Brokovnice;
-import Predmety.Naboje;
-import Predmety.Predmet;
+import Predmety.*;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -108,6 +105,8 @@ public class Svet {
     }
 
     public void inicializovatPredmety(){
+        pridatPredmetDoMistnosti("zoo", new Klobouk());
+        pridatPredmetDoMistnosti("hospoda", new Doutnik());
         pridatPredmetDoMistnosti("starostuv dum", new Brokovnice());
         pridatPredmetDoMistnosti("obchod", new Naboje());
         pridatPredmetDoMistnosti("ohrada", new Bavlna());

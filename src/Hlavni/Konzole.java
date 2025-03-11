@@ -46,6 +46,10 @@ public class Konzole {
             String predmet = prikaz2.substring(6);
             Prikaz poloz = new Poloz(predmet);
             System.out.println(">> " + poloz.proved(svet));
+        } else if (prikaz2.startsWith("pouzij")) {
+            String predmet = prikaz2.substring(7);
+            Prikaz pouzij = new Pouzij(predmet);
+            System.out.println(">> " + pouzij.proved(svet));
         } else if (prikaz2.equals("strel")) {
             Prikaz strel = new Strel();
             System.out.println(">> " + strel.proved(svet));

@@ -7,7 +7,7 @@ public class Strel implements Prikaz{
     @Override
     public String proved(Svet svet) {
         Hrac hrac = svet.getHrac();
-        if(svet.getAktualniMistnost().getNazev().equalsIgnoreCase("strecha hospody") && hrac.getInventar().obsahujePredmet("Brokovnice") && hrac.getInventar().obsahujePredmet("Naboje")){
+        if(svet.getAktualniMistnost().getNazev().equalsIgnoreCase("strecha hospody") && hrac.getInventar().obsahujePredmet("Brokovnice") && hrac.jeBrokovniceNabita()){
             svet.getAktualniMistnost().odebratPostavu("Nightmare");
             hrac.getInventar().odebratPredmet("Naboje");
             hrac.getInventar().odebratPredmet("Brokovnice");

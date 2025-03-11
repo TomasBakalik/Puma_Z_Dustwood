@@ -10,6 +10,6 @@ public class Naboje extends Predmet {
 
     @Override
     public String pouzij(Hrac hrac) {
-        return "";
+        return "Nabil jsi brokovnici";
     }
 }

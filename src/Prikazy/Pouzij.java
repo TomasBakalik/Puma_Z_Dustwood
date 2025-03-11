@@ -14,11 +14,18 @@ public class Pouzij implements Prikaz{
     @Override
     public String proved(Svet svet) {
         Predmet predmet = svet.getHrac().getInventar().getPredmet(nazevPredmetu);
+
         if(predmet == null){
             return "Tento predmet nemas v inventari.";
+        } else if (!nazevPredmetu.equalsIgnoreCase("doutnik") && !nazevPredmetu.equalsIgnoreCase("klobouk")) {
+            return "Tento predmet nelze pouzit. Muzes pouzit pouze doutnik nebo klobouk.";
         }
 
-        return predmet.pouzij(svet.getHrac());
+        String vysledek = predmet.pouzij(svet.getHrac());
+
+        svet.getHrac().getInventar().odebratPredmet(nazevPredmetu);
+
+        return vysledek;
     }
 
     @Override

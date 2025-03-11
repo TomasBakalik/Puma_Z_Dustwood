@@ -21,6 +21,7 @@ public class Konzole {
         mapa.put("napoveda", new Napoveda());
         mapa.put("pomoc", new Pomoc());
         mapa.put("inventar", new ZobrazitInventar());
+        mapa.put("nabit", new Nabit());
     }
 
     public void provedPrikaz(){
@@ -59,6 +60,9 @@ public class Konzole {
             if(poves.konec()){
                 konecHry = true;
             }
+        } else if (prikaz2.equals("nabit")) {
+            Prikaz nabit = new Nabit();
+            System.out.println(">> " + nabit.proved(svet));
         } else if (prikaz2.equals("inventar")) {
             Prikaz inventar = new ZobrazitInventar();
             System.out.println(">> " + inventar.proved(svet));

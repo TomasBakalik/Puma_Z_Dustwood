@@ -1,5 +1,6 @@
 package Hlavni;
 
+import Predmety.Inventar;
 import Prikazy.*;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -19,6 +20,7 @@ public class Konzole {
         mapa.put("stop", new Stop());
         mapa.put("napoveda", new Napoveda());
         mapa.put("pomoc", new Pomoc());
+        mapa.put("inventar", new ZobrazitInventar());
     }
 
     public void provedPrikaz(){
@@ -53,6 +55,9 @@ public class Konzole {
             if(poves.konec()){
                 konecHry = true;
             }
+        } else if (prikaz2.equals("inventar")) {
+            Prikaz inventar = new ZobrazitInventar();
+            System.out.println(">> " + inventar.proved(svet));
         } else if (mapa.containsKey(prikaz2)) {
             Prikaz prikaz = mapa.get(prikaz2);
             System.out.println(">> " + prikaz.proved(svet));

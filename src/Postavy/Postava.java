@@ -22,5 +22,5 @@ public abstract class Postava {
         return jmeno + ": " + informace;
     }
 
-    public abstract void interaguj(Svet svet);
+    public abstract String interaguj(Svet svet);
 }

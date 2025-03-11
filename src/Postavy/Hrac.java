@@ -17,8 +17,8 @@ public class Hrac extends Postava{
     }
 
     @Override
-    public void interaguj(Svet svet){
-
+    public String interaguj(Svet svet){
+        return "";
     }
 
 

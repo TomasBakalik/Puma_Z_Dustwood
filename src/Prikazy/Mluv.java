@@ -12,18 +12,17 @@ public class Mluv implements Prikaz{
         this.jmenoPostavy = jmenoPostavy;
     }
 
+
     @Override
     public String proved(Svet svet) {
         for(Postava postava: svet.getAktualniMistnost().getPostavy()){
             if(postava.getJmeno().trim().equalsIgnoreCase(jmenoPostavy.trim())){
-                postava.interaguj(svet);
-                return "";
+                return postava.pozdravHrace() + "\n" + postava.interaguj(svet);
             }
         }
         return "Takova postava tu neni";
-
-
     }
+
 
 
     @Override

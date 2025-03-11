@@ -7,12 +7,12 @@ public class Hank extends Postava{
 
 
     public Hank() {
-        super("Hank", ": Potrebujes brokovnici ze?");
+        super("Hank", "Potrebujes brokovnici ze?");
     }
 
 
     @Override
-    public void interaguj(Svet svet) {
-        System.out.println("Hank: Diky, ze jsi prisel, na vezmi si mou brokovnici.");
+    public String interaguj(Svet svet) {
+        return "Hank: Diky, ze jsi prisel, na vezmi si mou brokovnici.";
     }
 }

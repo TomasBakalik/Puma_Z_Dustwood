@@ -54,10 +54,13 @@ public abstract class Mistnost {
     }
 
     public void odebratPostavu(String jmeno){
-        for(Postava postava : postavy){
+        Iterator<Postava> iterator = postavy.iterator();
+        while(iterator.hasNext()){
+            Postava postava = iterator.next();
             if(postava.getJmeno().equalsIgnoreCase(jmeno)){
-                postavy.remove(postava);
+                iterator.remove();
                 System.out.println("Postava " + jmeno + " byla odstranena.");
+                return;
             }
         }
     }

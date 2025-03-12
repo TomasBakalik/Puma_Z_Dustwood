@@ -54,6 +54,9 @@ public class Konzole {
         } else if (prikaz2.equals("strel")) {
             Prikaz strel = new Strel();
             System.out.println(">> " + strel.proved(svet));
+            if (strel.konec()) {
+                konecHry = true;
+            }
         } else if (prikaz2.equals("poves")) {
             Prikaz poves = new Poves();
             System.out.println(">> " + poves.proved(svet));

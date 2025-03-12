@@ -8,6 +8,7 @@ public class Frank extends Postava{
         super("Frank", "Vitej v obchode! Chces naboje? Prines mi bavlnu");
     }
 
+    /*
     @Override
     public String interaguj(Svet svet) {
         if(svet.getHrac().getInventar().obsahujePredmet("Bavlna")){
@@ -15,6 +16,17 @@ public class Frank extends Postava{
             svet.getHrac().getInventar().pridatPredmet(new Naboje());
             return "Frank: Diky za bavlnu! Tady mas naboje.";
         }else{
+            return "Frank: Bez bavlny ti nic nedam.";
+        }
+    }
+
+     */
+
+    @Override
+    public String interaguj(Svet svet) {
+        if (svet.getHrac().getInventar().obsahujePredmet("Bavlna")) {
+            return "Frank: Dones mi bavlnu a dam ti naboje.";
+        } else {
             return "Frank: Bez bavlny ti nic nedam.";
         }
     }

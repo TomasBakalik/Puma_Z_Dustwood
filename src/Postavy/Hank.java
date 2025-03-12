@@ -13,6 +13,6 @@ public class Hank extends Postava{
 
     @Override
     public String interaguj(Svet svet) {
-        return "Hank: Diky, ze jsi prisel, na vezmi si mou brokovnici.";
+        return "Hank: Tady mas, vezmi si mou brokovnici.";
     }
 }

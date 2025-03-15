@@ -11,14 +11,15 @@ public class Nightmare extends Postava{
 
     @Override
     public String interaguj(Svet svet) {
-        if(svet.getHrac().getInventar().obsahujePredmet("Brokovnice") && svet.getHrac().getInventar().obsahujePredmet("Naboje")){
+        if(svet.getHrac().getInventar().obsahujePredmet("Brokovnice") && svet.getHrac().jeBrokovniceNabita()){
             svet.getHrac().getInventar().odebratPredmet("Brokovnice");
-            svet.getHrac().getInventar().odebratPredmet("Naboje");
             svet.getHrac().getInventar().pridatPredmet(new Predmety.KozichPumy());
             return "Nigtmare: Puma byla zastrelena! Nyni poves jeji kozich na dvere hospody.";
         }else{
+            System.out.println("Nightmare: Vrci a chysta se zautocit.");
+            System.out.println("Nightmare: Puma te roztrhala! Konec hry.");
             System.exit(0);
-            return "Nightmare: Puma te roztrhala! Konec hry.";
+            return "";
         }
 
     }

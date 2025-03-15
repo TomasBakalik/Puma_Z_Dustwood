@@ -1,0 +1,7 @@
+Vítej v textové hře Puma z Dustwood.
+Ve tvé vesničce na divokém západě utekla z místní zoo obrovská americká puma, která zabíjí dobytek a obyvatele ve tvé vesnici.
+Tvým úkolem nyní bude zastavit její řádění a přinést do vesnice naději a mír.
+Za použití různých příkazů, jako například: jdi[mistnost], mluv[postava], vezmi[predmet], poloz[predmet] a několika dalších dokážeš pumu zastavit.
+Nyní se nacházíš na náměstí a tvým prvním úkolem je jít za tvým přítelem Charliem, který je chovatelem v místní zoo a zjistit od něj základní informace.
+Můžeš se pustit do hraní.
+Přeji ti hodně štěstí příteli, zachraň své město.

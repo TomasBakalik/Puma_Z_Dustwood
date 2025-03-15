@@ -9,14 +9,13 @@ public class Strel implements Prikaz{
         Hrac hrac = svet.getHrac();
         if(svet.getAktualniMistnost().getNazev().equalsIgnoreCase("strecha hospody") && hrac.getInventar().obsahujePredmet("Brokovnice") && hrac.jeBrokovniceNabita()){
             svet.getAktualniMistnost().odebratPostavu("Nightmare");
-            hrac.getInventar().odebratPredmet("Naboje");
             hrac.getInventar().odebratPredmet("Brokovnice");
             hrac.getInventar().pridatPredmet(new Predmety.KozichPumy());
 
             return "Zastrelil jsi pumu! Nyni muzes povesit jeji kozich na dvere hospody.";
 
         }else{
-            return "Nemas potrebne vybaveni nebo nejsi na spravnem miste.";
+            return "Nemas potrebne vybaveni (nabita brokovnice) nebo nejsi na spravnem miste.";
         }
     }
 

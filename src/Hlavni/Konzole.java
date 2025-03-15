@@ -2,6 +2,10 @@ package Hlavni;
 
 import Predmety.Inventar;
 import Prikazy.*;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -14,6 +18,17 @@ public class Konzole {
 
     public Konzole(Svet svet){
         this.svet = svet;
+    }
+
+    public void zobrazitUvodniText(String soubor){
+        try(BufferedReader bufferedReader = new BufferedReader(new FileReader(soubor))){
+            String radek = "";
+            while((radek = bufferedReader.readLine()) != null){
+                System.out.println(radek);
+            }
+        }catch(IOException e){
+            System.out.println("Nepodarilo se nacist uvodni text ze souboru.");
+        }
     }
 
     public void inicializace(){
@@ -81,8 +96,8 @@ public class Konzole {
     }
 
     public void start(){
+        zobrazitUvodniText("uvod.txt");
         inicializace();
-        System.out.println("Vitej ve hre! Napis prikaz 'napoveda' pro seznam prikazu nebo 'stop' pro konec hry.");
         try{
             do{
                 provedPrikaz();

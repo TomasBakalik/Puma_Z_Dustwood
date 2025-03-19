@@ -1,7 +1,17 @@
 package Mista;
 
+/**
+ * Trida FactoryMistnost slouzi pro vytvareni instanci mistnosti na zaklade jejich nazvu.
+ */
 public class FactoryMistnost {
 
+    /**
+     * Staticka metoda pro vytvoreni instance mistnosti, podle zadaneho nazvu.
+     * Pokud nazev odpovida nektere z jiz existujicich mistnosti, vrati se jeji instance.
+     * Pokud je zadany nazev chybny/neplatny, vyvola se vyjimka.
+     * @param nazev Nazev mistnosti, ktera ma byt vytvorena.
+     * @return Instance mitnosti odpovidajici zadanemu nazvu.
+     */
     public static Mistnost vytvorMistnost(String nazev){
         switch (nazev.toLowerCase()){
             case "namesti":

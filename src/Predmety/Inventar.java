@@ -2,6 +2,10 @@ package Predmety;
 
 import java.util.ArrayList;
 
+/**
+ * Trida inventar reprezentuje inventar hrace.
+ * Umoznuje pridavani, odebirani a spravu predmetu.
+ */
 public class Inventar {
 
     private int kapacita;
@@ -12,6 +16,11 @@ public class Inventar {
         this.predmety = new ArrayList<>();
     }
 
+    /**
+     * Prida predmet do inventare, pokud neni plny nebo v inventari predmet jiz neni.
+     * @param predmet Predmet, ktery se ma pridat.
+     * @return true, pokud byl uspesne pridan, jinak false
+     */
     public boolean pridatPredmet(Predmet predmet) {
         if(predmety.size() < kapacita && !predmety.contains(predmet)) {
             predmety.add(predmet);
@@ -23,6 +32,11 @@ public class Inventar {
         }
     }
 
+    /**
+     * Odebere predmet z inventare, pokud v nem existuje.
+     * @param nazev Nazev predmetu, ktery se ma odebrat.
+     * @return true, pokud byl uspesne odebran, jinak false.
+     */
     public boolean odebratPredmet(String nazev) {
         for(Predmet predmet : predmety) {
             if(predmet.getJmeno().equalsIgnoreCase(nazev)) {
@@ -35,6 +49,11 @@ public class Inventar {
         return false;
     }
 
+    /**
+     * Kontroluje, zda se v inventari nachazi predmet s danym nazvem.
+     * @param nazev Nazev hledaneho predmetu.
+     * @return true, pokud je predmet v inventari, jinak false.
+     */
     public boolean obsahujePredmet(String nazev){
         for(Predmet predmet : predmety) {
             if(predmet.getJmeno().equalsIgnoreCase(nazev)) {
@@ -44,6 +63,11 @@ public class Inventar {
         return false;
     }
 
+    /**
+     * Vrati predmet s danym nazvem, pokud existuje v inventari.
+     * @param nazev Nazev hledaneho predmetu.
+     * @return Instance predmetu, pokud existuje.
+     */
     public Predmet getPredmet(String nazev){
         for(Predmet predmet : predmety) {
             if(predmet.getJmeno().equalsIgnoreCase(nazev)) {
@@ -53,6 +77,10 @@ public class Inventar {
         return null;
     }
 
+    /**
+     * Vypise obsah inventare do konzole.
+     * Pokud je inventar prazdny, sdeli se informace o tom, ze je prazdny.
+     */
     public void zobrazInventar(){
         if(predmety.isEmpty()) {
             System.out.println("Inventar je prazdny.");
@@ -64,6 +92,10 @@ public class Inventar {
         }
     }
 
+    /**
+     * Vraci seznam vsech predmetu v inventari.
+     * @return Seznam predmetu v invntari.
+     */
     public ArrayList<Predmet> getPredmety() {
         return predmety;
     }

@@ -9,6 +9,12 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Scanner;
 
+/**
+ * Trida konzole se stara o interakci mezi hracem a hrou.
+ * Jsou zde metody pro nacteni uvodniho textu (o cem hra je), nastavuji se zde prikazy,
+ * zpracovavaji se zde vstypy hrace a spusteni hlavni herni smycky.
+ */
+
 public class Konzole {
 
     private boolean konecHry = false;
@@ -20,6 +26,11 @@ public class Konzole {
         this.svet = svet;
     }
 
+    /**
+     * Nacte uvodni text hry ze souboru a vypise jej hraci do konzole.
+     * Kdyz se soubor nepodari nacist vypise se chyba.
+     * @param soubor Nazev souboru, ve kterem je zapsany uvodni text.
+     */
     public void zobrazitUvodniText(String soubor){
         try(BufferedReader bufferedReader = new BufferedReader(new FileReader(soubor))){
             String radek = "";
@@ -31,6 +42,10 @@ public class Konzole {
         }
     }
 
+    /**
+     * Inicializuje dostupne prikazy ve hre a prida je do mapy.
+     * Diky tomu mohou byt prikazy efektivne vyzivany a spravovany.
+     */
     public void inicializace(){
         mapa.put("stop", new Stop());
         mapa.put("napoveda", new Napoveda());
@@ -39,6 +54,10 @@ public class Konzole {
         mapa.put("nabit", new Nabit());
     }
 
+    /**
+     * Ceka na vstup hrace a vykonava zadany prikaz.
+     * Kdyz je prikaz neznamy vypise se chybova zprava.
+     */
     public void provedPrikaz(){
         System.out.println(">> ");
         String prikaz2 = scanner.nextLine().toLowerCase().trim();
@@ -95,6 +114,10 @@ public class Konzole {
         }
     }
 
+    /**
+     * Spousti hlavni herni smycku.
+     * Nejprve nacita uvodni text, nastavuje prikazy a pote provadi prikazy hrace dokud hra nekonci.
+     */
     public void start(){
         zobrazitUvodniText("uvod.txt");
         inicializace();

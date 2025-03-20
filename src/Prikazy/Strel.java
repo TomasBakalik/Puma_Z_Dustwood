@@ -15,7 +15,7 @@ public class Strel implements Prikaz{
             return "Zastrelil jsi pumu! Nyni muzes povesit jeji kozich na dvere hospody.";
 
         }else{
-            return "Nemas potrebne vybaveni (nabita brokovnice) nebo nejsi na spravnem miste.";
+            return "Nemas potrebne vybaveni (nabita brokovnice) nebo nejsi na spravnem miste. Strilet muzes pouze na strese hospody a pokud mas nabitou brokovnici";
         }
     }
 

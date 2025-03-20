@@ -10,7 +10,7 @@ public class Poves implements Prikaz{
         if(svet.getAktualniMistnost().getNazev().equalsIgnoreCase("strecha hospody") && hrac.getInventar().obsahujePredmet("Kozich pumy")){
             return "Povesil jsi kozich pumy na dvere hospody. Vitezstvi!";
         }else{
-            return "Tady nemuzes povesit kozich pumy!";
+            return "Nemas nabitou brokovnici! Puma te roztrhala, konec hry." ;
         }
     }
 

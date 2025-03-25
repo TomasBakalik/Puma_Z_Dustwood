@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Testovaci trida pro metodu obsahujePredmet() ve tride Inventar.
+ */
 class InventarObsahujeTest {
 
 

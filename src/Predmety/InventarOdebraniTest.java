@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Testovaci trida pro metodu odebratPredmet() ve tride Inventar.
+ */
 class InventarOdebraniTest {
 
     private Inventar inventar;

@@ -17,20 +17,29 @@ public class Inventar {
     }
 
     /**
-     * Prida predmet do inventare, pokud neni plny nebo v inventari predmet jiz neni.
+     * Prida predmet do inventare, pokud neni plny a predmet tam jiz neni.
      * @param predmet Predmet, ktery se ma pridat.
      * @return true, pokud byl uspesne pridan, jinak false
      */
     public boolean pridatPredmet(Predmet predmet) {
-        if(predmety.size() < kapacita && !predmety.contains(predmet)) {
+        if (predmet == null) {
+            System.out.println("Nelze pridat null predmet.");
+            return false;
+        } else if (predmety.contains(predmet)) {
+            System.out.println("Tento predmet v inventari jiz je a nemuzes pridavat duplicity.");
+            return false;
+        } else if (predmety.size() >= kapacita) {
+            System.out.println("Inventar je plny! Nemuzes vzit " + predmet.getJmeno());
+            return false;
+        }else{
             predmety.add(predmet);
             System.out.println(predmet.getJmeno() + " byl pridan do inventare");
             return true;
-        }else{
-            System.out.println("Inventar je plny! Nemuzes vzit " + predmet.getJmeno());
-            return false;
         }
     }
+
+
+
 
     /**
      * Odebere predmet z inventare, pokud v nem existuje.

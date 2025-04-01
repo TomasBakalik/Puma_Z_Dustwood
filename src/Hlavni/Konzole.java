@@ -22,22 +22,23 @@ public class Konzole {
     private Svet svet;
     private Scanner scanner = new Scanner(System.in);
 
-    public Konzole(Svet svet){
+    public Konzole(Svet svet) {
         this.svet = svet;
     }
 
     /**
      * Nacte uvodni text hry ze souboru a vypise jej hraci do konzole.
      * Kdyz se soubor nepodari nacist vypise se chyba.
+     *
      * @param soubor Nazev souboru, ve kterem je zapsany uvodni text.
      */
-    public void zobrazitUvodniText(String soubor){
-        try(BufferedReader bufferedReader = new BufferedReader(new FileReader(soubor))){
+    public void zobrazitUvodniText(String soubor) {
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(soubor))) {
             String radek = "";
-            while((radek = bufferedReader.readLine()) != null){
+            while ((radek = bufferedReader.readLine()) != null) {
                 System.out.println(radek);
             }
-        }catch(IOException e){
+        } catch (IOException e) {
             System.out.println("Nepodarilo se nacist uvodni text ze souboru.");
         }
     }
@@ -46,7 +47,7 @@ public class Konzole {
      * Inicializuje dostupne prikazy ve hre a prida je do mapy.
      * Diky tomu mohou byt prikazy efektivne vyzivany a spravovany.
      */
-    public void inicializace(){
+    public void inicializace() {
         mapa.put("stop", new Stop());
         mapa.put("napoveda", new Napoveda());
         mapa.put("pomoc", new Pomoc());
@@ -58,31 +59,51 @@ public class Konzole {
      * Ceka na vstup hrace a vykonava zadany prikaz.
      * Kdyz je prikaz neznamy vypise se chybova zprava.
      */
-    public void provedPrikaz(){
+    public void provedPrikaz() {
         System.out.println(">> ");
         String prikaz2 = scanner.nextLine().toLowerCase().trim();
 
-        if(prikaz2.startsWith("jdi")){
-            String smer = prikaz2.substring(4);
+        if (prikaz2.startsWith("jdi")) {
+            if (prikaz2.length() <= 4 || prikaz2.substring(4).trim().isEmpty()) {
+                System.out.println(">> Musis zadat mistnost, kam chces jit napr. jdi [mistnost]");
+                return;
+            }
+            String smer = prikaz2.substring(4).trim();
             Prikaz jdi = new Jdi(smer);
             System.out.println(">> " + jdi.proved(svet));
-            if(jdi.konec()){
+            if (jdi.konec()) {
                 konecHry = true;
             }
         } else if (prikaz2.startsWith("mluv")) {
-            String postava = prikaz2.substring(5);
+            if (prikaz2.length() <= 5 || prikaz2.substring(5).trim().isEmpty()) {
+                System.out.println(">> Musis zadat postavu, se kterou chces mluvit napr. mluv [jmeno postavy]");
+                return;
+            }
+            String postava = prikaz2.substring(5).trim();
             Prikaz mluv = new Mluv(postava);
             System.out.println(">> " + mluv.proved(svet));
         } else if (prikaz2.startsWith("vezmi")) {
-            String predmet = prikaz2.substring(6);
+            if (prikaz2.length() <= 6 || prikaz2.substring(6).trim().isEmpty()) {
+                System.out.println(">> Musis zadat predmet, ktery chces vzit napr. vezmi [nazev predmetu]");
+                return;
+            }
+            String predmet = prikaz2.substring(6).trim();
             Prikaz vezmi = new Vezmi(predmet);
             System.out.println(">> " + vezmi.proved(svet));
         } else if (prikaz2.startsWith("poloz")) {
-            String predmet = prikaz2.substring(6);
+            if (prikaz2.length() <= 6 || prikaz2.substring(6).trim().isEmpty()) {
+                System.out.println(">> Musis zadat predmet, ktery chces polozit napr. poloz [nazev predmetu]");
+                return;
+            }
+            String predmet = prikaz2.substring(6).trim();
             Prikaz poloz = new Poloz(predmet);
             System.out.println(">> " + poloz.proved(svet));
         } else if (prikaz2.startsWith("pouzij")) {
-            String predmet = prikaz2.substring(7);
+            if (prikaz2.length() <= 7 || prikaz2.substring(7).trim().isEmpty()) {
+                System.out.println(">> Musis zadat predmet, ktery chces pouzit napr. pouzij [nazev predmetu]");
+                return;
+            }
+            String predmet = prikaz2.substring(7).trim();
             Prikaz pouzij = new Pouzij(predmet);
             System.out.println(">> " + pouzij.proved(svet));
         } else if (prikaz2.equals("strel")) {
@@ -94,38 +115,33 @@ public class Konzole {
         } else if (prikaz2.equals("poves")) {
             Prikaz poves = new Poves();
             System.out.println(">> " + poves.proved(svet));
-            if(poves.konec()){
+            if (poves.konec()) {
                 konecHry = true;
             }
-        } else if (prikaz2.equals("nabit")) {
-            Prikaz nabit = new Nabit();
-            System.out.println(">> " + nabit.proved(svet));
-        } else if (prikaz2.equals("inventar")) {
-            Prikaz inventar = new ZobrazitInventar();
-            System.out.println(">> " + inventar.proved(svet));
         } else if (mapa.containsKey(prikaz2)) {
             Prikaz prikaz = mapa.get(prikaz2);
             System.out.println(">> " + prikaz.proved(svet));
-            if(prikaz.konec()){
+            if (prikaz.konec()) {
                 konecHry = true;
-            }else{
-                System.out.println(">> Neznamy prikaz");
             }
+        } else {
+            System.out.println(">> Neznamy prikaz. Zkus treba 'napoveda'.");
         }
     }
+
 
     /**
      * Spousti hlavni herni smycku.
      * Nejprve nacita uvodni text, nastavuje prikazy a pote provadi prikazy hrace dokud hra nekonci.
      */
-    public void start(){
+    public void start() {
         zobrazitUvodniText("uvod.txt");
         inicializace();
-        try{
-            do{
+        try {
+            do {
                 provedPrikaz();
-            }while(!konecHry);
-        }catch (Exception e){
+            } while (!konecHry);
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }

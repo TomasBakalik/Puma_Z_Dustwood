@@ -1,6 +1,5 @@
 package Hlavni;
 
-
 import Mista.FactoryMistnost;
 import Mista.Mistnost;
 import Postavy.*;

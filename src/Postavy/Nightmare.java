@@ -17,7 +17,7 @@ public class Nightmare extends Postava{
             return "Nigtmare: Puma byla zastrelena! Nyni poves jeji kozich na dvere hospody.";
         }else{
             System.out.println("Nightmare: Vrci a chysta se zautocit.");
-            System.out.println("Nightmare: Puma te roztrhala! Konec hry.");
+            System.out.println("Nightmare: Puma te roztrhala! Konec hry. Nemel jsi potrebne vybaveni na to pumu zastavit.");
             System.exit(0);
             return "";
         }
